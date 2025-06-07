@@ -26,6 +26,8 @@ public class Matriz {
 		for (int i=0; i<n; i++) {
 				System.out.print(mat[i][i] + " ");
 		}
+		
+		sc.close();
 	}
 
 }
