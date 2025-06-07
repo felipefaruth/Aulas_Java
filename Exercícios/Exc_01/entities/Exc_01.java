@@ -1,4 +1,7 @@
 package entities;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Exc_01 {
@@ -6,23 +9,58 @@ public class Exc_01 {
 	public static void main (String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-				
-		System.out.println("Quantos funcionários serão registrados: ");
 		
-		Funcionarios func = new Funcionarios();
-		func.setId(555);
-		System.out.println(func.getId());
+		List<Funcionarios> list = new ArrayList<>();
 		
-		/*for (int i=0; i<func.length; i++) {
-			
+		System.out.print("Quantos funcionários serão registrados: ");
+		int n = sc.nextInt();
+		
+		for (int i=0; i<n; i++) {
+			System.out.println("------------------------");
+			System.out.println("Funcionario #" + (i+1));
 			System.out.println("Digite o ID: ");
-			func[i].setId(sc.nextInt());
+			int id = sc.nextInt();
 			System.out.println("Digite o nome: ");
-			func[i].setNome(sc.nextLine());
+			sc.nextLine();
+			String name = sc.nextLine();
 			System.out.println("Digite o Salário: ");
-			func[i].setSal(sc.nextInt());
-		}*/
+			double sal = sc.nextDouble();
+			
+			Funcionarios func = new Funcionarios(id, name, sal);
+			
+			list.add(func);
+		}
+		System.out.println();
+		System.out.println("Digite o id para receber o aumento: ");
+		int idsal = sc.nextInt();
+		Integer pos = posicao(list, idsal);
+		while (pos == null) {
+				System.out.println("Esse id não existe!");
+				System.out.println("Digite o id para receber o aumento: ");
+				idsal = sc.nextInt();
+				pos = posicao(list, idsal);
+			}
+		
+				System.out.println("Qual a porcentagem do aumento: ");
+				int pctg = sc.nextInt();
+				list.get(pos).salRaise(pctg);
+			
+			
+		
+		System.out.println();
+		System.out.println("Funcionários: ");
+		System.out.println(list.toString());
+		
 		
 		sc.close();
+	}
+	
+	static Integer posicao(List<Funcionarios> list, int id) {
+		for (int i=0; i<list.size(); i++) {
+			if(list.get(i).getId() == id) {
+				return i;
+			}
+		}
+		return null;
 	}
 }
