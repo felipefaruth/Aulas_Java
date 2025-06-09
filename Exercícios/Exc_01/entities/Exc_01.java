@@ -14,6 +14,12 @@ public class Exc_01 {
 		
 		System.out.print("Quantos funcionários serão registrados: ");
 		int n = sc.nextInt();
+		while(n<=0) {
+			System.out.println("É preciso no mínimo 1 (um) registro!");
+			System.out.print("Quantos funcionários serão registrados: ");
+			n = sc.nextInt();
+		}
+		
 		
 		for (int i=0; i<n; i++) {
 			System.out.println("------------------------");
@@ -41,12 +47,10 @@ public class Exc_01 {
 				pos = posicao(list, idsal);
 			}
 		
-				System.out.println("Qual a porcentagem do aumento: ");
-				int pctg = sc.nextInt();
-				list.get(pos).salRaise(pctg);
+		System.out.println("Qual a porcentagem do aumento: ");
+		int pctg = sc.nextInt();
+		list.get(pos).salRaise(pctg);
 			
-			
-		
 		System.out.println();
 		System.out.println("Funcionários: ");
 		System.out.println(list.toString());
