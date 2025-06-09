@@ -38,7 +38,7 @@ public class Funcionarios {
 
 	@Override
 	public String toString() {
-		return  id + ", " + name + ", " + sal;
+		return  id + ", " + name + ", " + sal+"\n";
 	}
 	
 	
