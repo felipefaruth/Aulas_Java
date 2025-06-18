@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -5,14 +6,13 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.Scanner;
 
 public class DataHora {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
-		
 		
 		LocalDate d01 = LocalDate.parse("2020-12-01");
 		LocalDateTime d02 = LocalDateTime.parse("2020-01-01T10:10");
@@ -63,13 +63,16 @@ public class DataHora {
 		System.out.println(t2.toDays());
 		System.out.println(t3.toDays());
 		
+		DateTimeFormatter dtf1 = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+		LocalDateTime a = LocalDateTime.now();
+		
+		System.out.println("a = " + a.format(dtf1));
 		
 		
 		
 		
 		
-
-sc.close();
+		sc.close();
 	}
 
 }
