@@ -14,6 +14,12 @@ public class BusssinesAccount extends Account {
 		super(num, dono, saldo);
 		this.limiteDeEmprestimo = limiteDeEmprestimo;
 	}
+	
+	@Override
+	public void saque(double v) {
+		super.saque(v);
+		saldo -= 2;
+	}
 
 	public void emprestimo(double v) {
 		if (v <= limiteDeEmprestimo){
